@@ -2,7 +2,7 @@
     "name": "cps/smart",
     "autoload": {
         "psr-4": {
-            "Cps\\Smart\\": "App/"
+            "Cps\\Smart\\": "app/"
         }
     },
     "require": {}
