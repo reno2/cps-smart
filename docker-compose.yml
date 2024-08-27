@@ -1,0 +1,58 @@
+version: '3'
+
+networks:
+  laravel:
+
+volumes:
+  dbdata:
+    driver: local
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx.dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - fpm
+    networks:
+      - laravel
+
+
+  fpm:
+    build:
+      context: .
+      dockerfile: ./docker/php.dockerfile
+      args:
+        user: docker
+        uid: 1000
+    container_name: fpm
+    user: "1000:1000"
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
+    networks:
+      - laravel
+
+
+  composer:
+    container_name: composer
+    image: composer
+    command: /bin/bash "/app/commands/development/start-composer.sh"
+    working_dir: /var/www/html
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - laravel
+
+
