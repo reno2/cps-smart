@@ -13,8 +13,8 @@ services:
       context: .
       dockerfile: ./docker/nginx.dockerfile
       args:
-        - UID=${UID:-1000}
-        - GID=${GID:-1000}
+        - UID=${UID:-1003}
+        - GID=${GID:-1002}
     container_name: nginx
     restart: unless-stopped
     ports:
@@ -36,7 +36,7 @@ services:
         user: docker
         uid: 1000
     container_name: fpm
-    user: "1000:1000"
+    user: "1003:1002"
     volumes:
       - ./src:/var/www/html
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
