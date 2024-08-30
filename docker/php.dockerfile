@@ -72,9 +72,7 @@ CMD ["php-fpm"]
 #	&& chmod -R 0777 /var/www/cakes.ru/bootstrap/cache
 #
 ## Change current user to www
-USER github
-
-RUN chown -R ${user}:${user} .
+USER root
 
 #WORKDIR /var/www/cakes.ru
 #
