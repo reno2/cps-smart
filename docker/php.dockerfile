@@ -74,7 +74,7 @@ CMD ["php-fpm"]
 ## Change current user to www
 USER github
 
-
+RUN chown -R ${user}:${user} .
 
 #WORKDIR /var/www/cakes.ru
 #
