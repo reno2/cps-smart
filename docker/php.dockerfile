@@ -44,8 +44,8 @@ RUN pecl install mcrypt \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Add user for laravel application
-RUN groupadd -g 1000 www
-RUN useradd -u 1000 -ms /bin/bash -g www www
+RUN groupadd -g 1002 www
+RUN useradd -u 1003 -ms /bin/bash -g www www
 
 RUN sed -i "s/user = www-data/user = www/g" /usr/local/etc/php-fpm.d/www.conf
 RUN sed -i "s/group = www-data/group = www/g" /usr/local/etc/php-fpm.d/www.conf
@@ -72,7 +72,7 @@ CMD ["php-fpm"]
 #	&& chmod -R 0777 /var/www/cakes.ru/bootstrap/cache
 #
 ## Change current user to www
-#USER www
+USER www
 
 
 
