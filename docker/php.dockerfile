@@ -29,6 +29,7 @@ RUN pecl install mcrypt \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www/html
+COPY ./src /var/www/html
 
 RUN useradd github
 RUN usermod -aG www-data github
