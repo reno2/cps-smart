@@ -34,5 +34,5 @@ RUN useradd github
 RUN usermod -aG www-data github
 
 EXPOSE 9000
-
+USER github
 CMD ["php-fpm"]
