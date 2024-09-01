@@ -32,9 +32,9 @@ WORKDIR /var/www/html
 
 USER root
 COPY ./src /var/www/html/
-RUN useradd -m github
-RUN chown -R github:github /var/www/html/
-USER github
+#RUN useradd -m github
+#RUN chown -R github:github /var/www/html/
+#USER github
 
 EXPOSE 9000
 
