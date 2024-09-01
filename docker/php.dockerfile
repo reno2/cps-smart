@@ -35,4 +35,6 @@ RUN usermod -aG www-data github
 
 EXPOSE 9000
 USER github
+
+RUN composer install
 CMD ["php-fpm"]
