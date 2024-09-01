@@ -32,11 +32,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/php.dockerfile
-      args:
-        user: github
-        uid: 1003
     container_name: fpm
-    user: "1003:1002"
     volumes:
       - ./src:/var/www/html
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
