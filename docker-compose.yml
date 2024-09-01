@@ -33,6 +33,7 @@ services:
       context: .
       dockerfile: ./docker/php.dockerfile
     container_name: fpm
+    user: "github"
     volumes:
       - ./src:/var/www/html
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
