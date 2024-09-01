@@ -33,9 +33,9 @@ COPY ./src /var/www/html
 
 RUN useradd github
 RUN usermod -aG www-data github
-RUN composer install
 
 EXPOSE 9000
 USER github
+RUN composer install
 
 CMD ["php-fpm"]
