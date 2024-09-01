@@ -31,9 +31,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 WORKDIR /var/www/html
 
 COPY ./src /var/www/html/
-#RUN useradd -m github
-#RUN chown -R github:github /var/www/html/
-#USER github
+RUN useradd -m github
+RUN chown -R github:github /var/www/html/
 
 EXPOSE 9000
 
