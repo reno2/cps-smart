@@ -30,7 +30,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 WORKDIR /var/www/html
 
-USER root
 COPY ./src /var/www/html/
 #RUN useradd -m github
 #RUN chown -R github:github /var/www/html/
