@@ -29,11 +29,13 @@ RUN pecl install mcrypt \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www/html
+COPY ./src /var/www/html
 
-COPY ./src /var/www/html/
-RUN useradd -m github
-RUN chown -R github:github /var/www/html/
+RUN useradd github
+RUN usermod -aG www-data github
 
 EXPOSE 9000
+USER github
+RUN composer install
 
 CMD ["php-fpm"]

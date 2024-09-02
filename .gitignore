@@ -1,4 +1,4 @@
-/vendor/
+**/vendor/
 deploy.sh
-.idea/
+**/.idea/
 .env
