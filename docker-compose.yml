@@ -34,6 +34,8 @@ services:
       dockerfile: ./docker/php.dockerfile
     container_name: fpm
     user: "github"
+    env_file:
+      - .env
     volumes:
       - ./src:/var/www/html
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
