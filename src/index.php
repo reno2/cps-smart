@@ -1,8 +1,5 @@
 <?
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: *");
-
 use Cps\Smart\Request;
 use Cps\Smart\Response;
 use Cps\Smart\SmartAI;
